@@ -1,14 +1,14 @@
 #include <Arduino.h>
 
-int pinButton1 = 18;
-int pinButton2 = 19;
+int pinButton1 = 18;    // Change Mode
+int pinButton2 = 19;    // Record Waypoint
 int pinButton3 = 5;
 
 unsigned long ignoreUntilB1 = 0;
 bool stateB1 = HIGH, prevStateB1 = HIGH;
 const unsigned long DEBOUNCE_MS = 100;
 
-bool readButtons()  {
+void readButtons()  {
   unsigned long now = millis();
 
   // PB 1
@@ -18,7 +18,7 @@ bool readButtons()  {
   }
 }
 
-bool handleButtons()  {
+void handleButtons()  {
   if (stateB1 != prevStateB1) {
     prevStateB1 = stateB1;
     if (stateB1 == LOW ){
